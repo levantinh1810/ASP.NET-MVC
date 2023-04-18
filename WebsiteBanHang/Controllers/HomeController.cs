@@ -31,7 +31,7 @@ namespace WebsiteBanHang.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Trang liên hệ của cửa hàng.";
 
             return View();
         }
@@ -127,8 +127,11 @@ namespace WebsiteBanHang.Controllers
             return byte2String;
         }
 
-        
 
+        public ActionResult Seach(String seach,int id=0)
+        {
+            return View();
+        }
 
     }
 }

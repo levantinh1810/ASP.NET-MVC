@@ -11,8 +11,7 @@ namespace WebsiteBanHang.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations.Schema;
-
+    
     public partial class Product
     {
         public int Id { get; set; }
@@ -31,7 +30,5 @@ namespace WebsiteBanHang.Models
         public Nullable<int> DisplayOrder { get; set; }
         public Nullable<System.DateTime> CreatedUtc { get; set; }
         public Nullable<System.DateTime> UpdatedUtc { get; set; }
-
-        
     }
 }

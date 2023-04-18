@@ -43,9 +43,10 @@
                     <table class="table table-borderless table-shopping-cart">
                         <thead class="text-muted">
                             <tr class="small text-uppercase">
-                                <th scope="col">Product</th>
-                                <th scope="col" width="120">Quantity</th>
-                                <th scope="col" width="120">Price</th>
+                                <th scope="col">Tên sản phẩm</th>
+                                <th scope="col" width="120">Số lượng</th>
+                                <th scope="col" width="120">Giá tiền</th>
+                                <th scope="col" width="120">Tổng tiền</th>
                                 <th scope="col" class="text-right" width="200"> </th>
                             </tr>
                         </thead>
@@ -65,17 +66,21 @@
                                         </td>
                                         <td>
                                             <input type="text" value="@item.Quantity" />
-                    
+
                                         </td>
                                         <td>
                                             <div class="price-wrap">
                                                 <var class="price">@item.Product.Price</var>
                                             </div> <!-- price-wrap .// -->
                                         </td>
+                                        <td>
+                                            <div class="price-wrap">
+                                                <var class="price">@(String.Format("{0:N0}", ((@item.Product.Price * item.Quantity)))) </var>
+                                            </div> <!-- price-wrap .// -->
+                                        </td>
                                         <td class="text-right">
                                             <input type="hidden" value="@item.Product.Id" id="productid" />
-                                            <a data-original-title="Save to Wishlist" title="" href="" class="btn btn-light" data-toggle="tooltip"> <i class="fa fa-heart"></i></a>
-                                            <a href="" class="btn btn-light" id="removecart"> Remove</a>
+                                            <a href="" class="btn btn-light" id="removecart"> Xóa</a>
                                         </td>
                                     </tr>
                                 }
@@ -89,13 +94,13 @@
                     </table>
 
                     <div class="card-body border-top">
-                        <a href="#" class="btn btn-primary float-md-right"> Make Purchase <i class="fa fa-chevron-right"></i> </a>
-                        <a href="#" class="btn btn-light"> <i class="fa fa-chevron-left"></i> Continue shopping </a>
+                        <a href="~/Payment/Index" class="btn btn-primary float-md-right"> Thanh toán <i class="fa fa-chevron-right"></i> </a>
+                        <a href="~/Home/Index/" class="btn btn-light"> <i class="fa fa-chevron-left"></i> Tiếp tục mua sắm </a>
                     </div>
                 </div> <!-- card.// -->
 
                 <div class="alert alert-success mt-3">
-                    <p class="icontext"><i class="icon text-success fa fa-truck"></i> Free Delivery within 1-2 weeks</p>
+                    <p class="icontext"><i class="icon text-success fa fa-truck"></i> Miễn phí giao hàng trong 1 tuần</p>
                 </div>
 
             </main> <!-- col.// -->
@@ -104,11 +109,11 @@
                     <div class="card-body">
                         <form>
                             <div class="form-group">
-                                <label>Have coupon?</label>
+                                <label>Áp dụng phiếu giảm giá</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" name="" placeholder="Coupon code">
+                                    <input type="text" class="form-control" name="" placeholder="Mã giảm giá">
                                     <span class="input-group-append">
-                                        <button class="btn btn-primary">Apply</button>
+                                        <button class="btn btn-primary">ÁP dụng</button>
                                     </span>
                                 </div>
                             </div>
@@ -118,15 +123,15 @@
                 <div class="card">
                     <div class="card-body">
                         <dl class="dlist-align">
-                            <dt>Total price:</dt>
+                            <dt>Tổng tiền:</dt>
                             <dd class="text-right">USD 568</dd>
                         </dl>
                         <dl class="dlist-align">
-                            <dt>Discount:</dt>
+                            <dt>Giảm giá:</dt>
                             <dd class="text-right">USD 658</dd>
                         </dl>
                         <dl class="dlist-align">
-                            <dt>Total:</dt>
+                            <dt>Tổng cộng:</dt>
                             <dd class="text-right  h5"><strong>$1,650</strong></dd>
                         </dl>
                         <hr>
